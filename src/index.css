@@ -1,0 +1,192 @@
+/* ==========================================================================
+   ALEGRA RD — CSS ARQUITECTÓNICO & SISTEMA DE DISEÑO
+   Mode: contrast-hybrid (Blanco Alabastro + Pizarra Técnica Profunda #121417)
+   Typography: Space Grotesk (Display) + DM Sans (Body) + JetBrains Mono (Tech)
+   ========================================================================== */
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --bg-contrast: #121417;
+  --bg-card: #FFFFFF;
+  --bg-card-contrast: #181C21;
+  --bg-soft-teal: #E0F7F5;
+  
+  --text-primary: #121316;
+  --text-muted: #64748B;
+  --text-light: #FFFFFF;
+  --text-light-muted: rgba(255, 255, 255, 0.68);
+  
+  --accent: #00D1B2;
+  --accent-hover: #00B29A;
+  --accent-soft: rgba(0, 209, 178, 0.12);
+  --gold-accent: #D4E93B;
+  
+  --border-hairline: rgba(20, 22, 25, 0.1);
+  --border-contrast: rgba(255, 255, 255, 0.1);
+  
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Retícula utilitaria container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 5vw, 3rem);
+  padding-right: clamp(1.25rem, 5vw, 3rem);
+  min-width: 0;
+}
+
+.section-padding {
+  padding-top: clamp(4rem, 9vw, 8rem);
+  padding-bottom: clamp(4rem, 9vw, 8rem);
+}
+
+/* Tipografía de Alto Impacto */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: inherit;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 6.5vw, 4.25rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4.8vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+}
+
+p {
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Botones con estándares táctiles (>=44px) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--accent);
+  color: #0A1E1B;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 209, 178, 0.25);
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 209, 178, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0.75rem 1.6rem;
+  background-color: transparent;
+  color: inherit;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid currentColor;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 209, 178, 0.08);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Líneas divisorias sutiles */
+.hairline-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-hairline);
+}
+
+/* Asegurar que hijos de grid y flex nunca desborden */
+.grid-child, .flex-child {
+  min-width: 0;
+}
